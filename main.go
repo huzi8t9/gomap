@@ -62,7 +62,7 @@ func main() {
 	} else {
 		fmt.Printf("Discovering hosts (%d candidates)...\n", len(ips))
 		alive = discoverHosts(ips, *concurrency, *timeout)
-		fmt.Printf("%d host(s) up\n\n", len(alive))
+		fmt.Printf("%d host%s up\n\n", len(alive), If(len(alive) == 1, "", "s"))
 	}
 
 	for _, ip := range alive {
